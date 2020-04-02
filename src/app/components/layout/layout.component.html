@@ -1,0 +1,12 @@
+<h3>
+  <a routerLink="/">Home</a>
+  <a routerLink="/protected">Protected</a>
+  <ng-template [ngIf]="user">
+    <a routerLink="" (click)="logout()">Logout</a>
+  </ng-template>
+  <ng-template [ngIf]="!user">
+    <a routerLink="" (click)="login()">Login</a>
+  </ng-template>
+</h3>
+
+<router-outlet></router-outlet>
