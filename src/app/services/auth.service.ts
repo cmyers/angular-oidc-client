@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserManager, UserManagerSettings, User } from 'oidc-client';
-import { Constants } from 'src/helpers/Constants';
+import { OIDCConstants } from 'src/helpers/Constants';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +12,14 @@ export class AuthService {
 
   constructor() {
     const settings: UserManagerSettings = {
-      authority: Constants.stsAuthority,
-      client_id: Constants.clientId,
-      redirect_uri: `${Constants.clientRoot}auth-callback`,
-      silent_redirect_uri: `${Constants.clientRoot}silent-renew.html`,
+      authority: OIDCConstants.STSAUTHORITY,
+      client_id: OIDCConstants.CLIENTID,
+      redirect_uri: `${OIDCConstants.CLIENTROOT}auth-callback`,
+      silent_redirect_uri: `${OIDCConstants.CLIENTROOT}silent-renew.html`,
       // tslint:disable-next-line:object-literal-sort-keys
-      post_logout_redirect_uri: `${Constants.clientRoot}`,
+      post_logout_redirect_uri: `${OIDCConstants.CLIENTROOT}`,
       response_type: 'code',
-      scope: Constants.clientScope
+      scope: OIDCConstants.CLIENTSCOPE
     };
     this.userManager = new UserManager(settings);
   }
