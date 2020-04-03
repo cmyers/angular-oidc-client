@@ -12,7 +12,7 @@ export class LayoutComponent implements OnInit {
   user: User = null;
   constructor(
     private authService: AuthService
-    ) {}
+  ) {}
 
   ngOnInit() {
       this.user = this.authService.getUser();
